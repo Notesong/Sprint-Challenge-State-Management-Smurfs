@@ -39,28 +39,28 @@ const SmurfsForm = props => {
       ) : (
         <form onSubmit={handleSubmit}>
             <input
-                placeholder="Name"
-                onChange={handleChangesName}
-                type='text'
-                name='name'
-                value={newName}
-                maxLength='30'
+              placeholder="Name"
+              onChange={handleChangesName}
+              type='text'
+              name='name'
+              value={newName}
+              maxLength='30'
             />
             <input
-                placeholder="Age"
-                onChange={handleChangesAge}
-                type='number'
-                name='age'
-                value={newAge}
-                maxLength='5'
+              placeholder="Age"
+              onChange={handleChangesAge}
+              type='number'
+              name='age'
+              value={newAge}
+              maxLength='5'
             />
             <input
-                placeholder="Height"
-                onChange={handleChangesHeight}
-                type='text'
-                name='height'
-                value={newHeight}
-                maxLength='10'
+              placeholder="Height"
+              onChange={handleChangesHeight}
+              type='text'
+              name='height'
+              value={newHeight}
+              maxLength='10'
             />
             <button>Add</button>
         </form>

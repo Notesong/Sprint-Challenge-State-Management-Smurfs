@@ -40,6 +40,7 @@ button {
   display: inline-block;
   font-size: 16px;
   margin-top: 2rem;
+  margin-left: 1rem;
 }
 
 .delete-button {
@@ -54,7 +55,22 @@ button {
 
 input[type=text], input[type=number] {
   padding: 12px 20px;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   box-sizing: border-box;
+  width: 12rem;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+  width: 6rem;
+}
+
+.smurfs-form .height {
+  width: 6rem;
+}

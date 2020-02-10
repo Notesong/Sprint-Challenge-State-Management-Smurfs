@@ -1,20 +1,67 @@
-import React from "react";
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 
-import { getData } from "../actions/actions";
+import { postData } from "../actions/actions";
 
 const SmurfsForm = props => {
-  const handleGetData = e => {
-    e.preventDefault();
-    props.getData();
-  };
+    // local states for form
+    const [newName, setNewName] = useState('');
+    const [newAge, setNewAge] = useState('');
+    const [newHeight, setNewHeight] = useState('');
+
+    const handleChangesName = e => {
+        setNewName(e.target.value);
+    };
+
+    const handleChangesAge = e => {
+        setNewAge(e.target.value);
+    };
+
+    const handleChangesHeight = e => {
+        setNewHeight(e.target.value);
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log(e)
+        props.postData(newName, newAge, newHeight);
+        setNewName('');
+        setNewAge('');
+        setNewHeight('');
+    };
 
   return (
     <div className="smurfs-form">
-      {props.isFetchingData ? (
-        <div>**we are fetching data**</div>
+      {props.isPostingData ? (
+        <div>Submitting data...</div>
       ) : (
-        <button onClick={handleGetData}>get data</button>
+        <form onSubmit={handleSubmit}>
+            <input
+                placeholder="Name"
+                onChange={handleChangesName}
+                type='text'
+                name='name'
+                value={newName}
+                maxLength='30'
+            />
+            <input
+                placeholder="Age"
+                onChange={handleChangesAge}
+                type='text'
+                name='age'
+                value={newAge}
+                maxLength='10'
+            />
+            <input
+                placeholder="Height"
+                onChange={handleChangesHeight}
+                type='text'
+                name='height'
+                value={newHeight}
+                maxLength='10'
+            />
+            <button>Add</button>
+        </form>
       )}
     </div>
   );
@@ -22,11 +69,11 @@ const SmurfsForm = props => {
 
 const mapStateToProps = state => {
   return {
-    isFetchingData: state.isFetchingData
+    isPostingData: state.isPostingData
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getData }
+  { postData }
 )(SmurfsForm);

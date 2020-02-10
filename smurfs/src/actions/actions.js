@@ -19,16 +19,21 @@ export const getData = () => dispatch => {
     });
 };
 
-export const postData = () => dispatch => {
+export const postData = (name, age, height) => dispatch => {
     dispatch({ type: POST_DATA });
     axios
-      .post("http://localhost:3333/smurfs")
+      .post("http://localhost:3333/smurfs", {
+        name: name,
+        age: age,
+        height: height,
+        id: Date.now()
+      })
       .then(res => {
         console.log(res);
         dispatch({ type: UPDATE_SMURFS, payload: res.data });
       })
       .catch(err => {
-        console.error("error fetching data from api. err: ", err);
-        dispatch({ type: SET_ERROR, payload: "error fetching data from api" });
+        console.error("error posting data to api. err: ", err);
+        dispatch({ type: SET_ERROR, payload: "error posting data to api" });
       });
   };

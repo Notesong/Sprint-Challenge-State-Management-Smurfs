@@ -1,8 +1,9 @@
-import { FETCH_DATA, UPDATE_SMURFS, SET_ERROR } from "../actions/actions";
+import { FETCH_DATA, POST_DATA, UPDATE_SMURFS, SET_ERROR } from "../actions/actions";
 
 const initialState = {
   smurfs: [],
   isFetchingData: false,
+  isPostingData: false,
   error: ""
 };
 
@@ -14,11 +15,18 @@ export const reducer = (state = initialState, action) => {
         isFetchingData: true,
         smurfs: []
       };
+    case POST_DATA:
+        return {
+          ...state,
+          isPostingData: true,
+          smurfs: []
+        };
     case UPDATE_SMURFS:
       return {
         ...state,
         smurfs: action.payload,
-        isFetchingData: false
+        isFetchingData: false,
+        isPostingData: false
       };
     case SET_ERROR:
       return {

@@ -9,6 +9,7 @@ const SmurfsForm = props => {
     const [newAge, setNewAge] = useState('');
     const [newHeight, setNewHeight] = useState('');
 
+    // handle changes for inputs
     const handleChangesName = e => {
         setNewName(e.target.value);
     };
@@ -21,10 +22,10 @@ const SmurfsForm = props => {
         setNewHeight(e.target.value);
     };
 
+    // handle form submit by posting data and resets 'new' states
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(e)
-        props.postData(newName, newAge, newHeight);
+        props.postData(newName, parseInt(newAge), newHeight);
         setNewName('');
         setNewAge('');
         setNewHeight('');
@@ -32,6 +33,7 @@ const SmurfsForm = props => {
 
   return (
     <div className="smurfs-form">
+      {/* display info or form based on whether data is sumitting or not */}
       {props.isPostingData ? (
         <div>Submitting data...</div>
       ) : (

@@ -26,15 +26,8 @@
 .smurf {
   background-color: rgb(223, 223, 223);
   margin: 3rem;
-  padding: 2rem;
+  padding: 1rem;
   width: 200px;
-  align-items: center;
-}
-
-input[type=text], input[type=number] {
-  padding: 12px 20px;
-  margin: 0 1rem;
-  box-sizing: border-box;
 }
 
 button {
@@ -48,3 +41,20 @@ button {
   font-size: 16px;
   margin-top: 2rem;
 }
+
+.delete-button {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.btn-container {
+  text-align: right;
+}
+
+input[type=text], input[type=number] {
+  padding: 12px 20px;
+  margin: 0 1rem;
+  box-sizing: border-box;
+}
+

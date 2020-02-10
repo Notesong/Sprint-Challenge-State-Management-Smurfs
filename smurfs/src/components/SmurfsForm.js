@@ -55,6 +55,7 @@ const SmurfsForm = props => {
               maxLength='5'
             />
             <input
+              className="height"
               placeholder="Height"
               onChange={handleChangesHeight}
               type='text'

@@ -47,10 +47,10 @@ const SmurfsForm = props => {
             <input
                 placeholder="Age"
                 onChange={handleChangesAge}
-                type='text'
+                type='number'
                 name='age'
                 value={newAge}
-                maxLength='10'
+                maxLength='5'
             />
             <input
                 placeholder="Height"
